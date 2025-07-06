@@ -1,0 +1,33 @@
+┌─────────────────────────────┐
+│         User / Chatbot      │
+│  (Natural Language Input)   │
+└────────────┬────────────────┘
+             │
+             ▼
+┌─────────────────────────────┐
+│          React UI           │
+│ (Sends POST to FastAPI)     │
+└────────────┬────────────────┘
+             │
+             ▼
+┌─────────────────────────────┐
+│        FastAPI Backend      │
+│    - main.py                │
+│    - simulator.py           │
+└────────────┬────────────────┘
+             │
+ ┌────────────┴────────────┐
+ │ Gemini AI (LLM)         │ ◄──── Extract trip info
+ └─────────────────────────┘
+             │
+ ┌────────────┴────────────┐
+ │ Nominatim API (OSM)     │ ◄──── Geocode origin/destination
+ └─────────────────────────┘
+             │
+ ┌────────────┴────────────┐
+ │ A/B Street CLI + API    │ ◄──── Scenario import + simulation
+ └─────────────────────────┘
+             │
+ ┌────────────┴────────────┐
+ │ PostgreSQL Database     │ ◄──── Store summary metrics
+ └─────────────────────────┘
